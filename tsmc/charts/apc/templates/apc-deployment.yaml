@@ -17,8 +17,8 @@ spec:
           image: {{ .Values.image.repository }}
           imagePullPolicy: Always
           env: 
-            - name: NODE_CONFIG
-              value: '{"nats": {"connection": "tsmc-nats"}}'
+            - name: NATS_SERVICE_CONNECTION
+              value: tsmc-nats:4222
 
           ports:
             - containerPort: {{ .Values.service.port }}
