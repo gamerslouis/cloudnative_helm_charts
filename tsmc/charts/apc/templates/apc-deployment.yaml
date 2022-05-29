@@ -13,9 +13,6 @@ spec:
         app: {{ .Chart.Name }}
     spec:
       containers:
-        - args:
-            - node
-            - src
           name: {{ .Chart.Name }}
           image: {{ .Values.image.repository }}
           imagePullPolicy: Always
