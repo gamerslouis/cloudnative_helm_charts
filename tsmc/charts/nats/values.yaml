@@ -358,7 +358,7 @@ additionalVolumes: []
 additionalVolumeMounts: []
 
 cluster:
-  enabled: true
+  enabled: false
   replicas: 1
   noAdvertise: false
 
