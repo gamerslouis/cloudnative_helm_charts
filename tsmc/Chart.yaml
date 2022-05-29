@@ -27,12 +27,15 @@ dependencies: # A list of the chart requirements (optional)
   - name: mongodb
     repository: https://charts.bitnami.com/bitnami
     version: 0.1.0
+
   - name: loki
     repository: https://github.com/grafana/loki
     version: 2.11.1
+
   - name: nats
     repository: https://nats-io.github.io/k8s/helm/charts/
     version: 0.17.0
+    
   - name: apc-simulator
     repository: https://github.com/gamerslouis/cloudnative_apc_simulator
     version: 0.1.0
