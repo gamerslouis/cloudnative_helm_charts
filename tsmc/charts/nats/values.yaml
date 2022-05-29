@@ -74,7 +74,6 @@ nats:
     # it will try to ensure that the server is ready to serve streams.
     startup:
       enabled: true
-
       initialDelaySeconds: 10
       timeoutSeconds: 5
       periodSeconds: 10
@@ -359,8 +358,8 @@ additionalVolumes: []
 additionalVolumeMounts: []
 
 cluster:
-  enabled: false
-  replicas: 3
+  enabled: true
+  replicas: 1
   noAdvertise: false
 
   # Explicitly set routes for clustering.

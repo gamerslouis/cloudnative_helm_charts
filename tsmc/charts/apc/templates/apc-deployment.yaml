@@ -19,7 +19,6 @@ spec:
           env: 
             - name: NATS_SERVICE_CONNECTION
               value: tsmc-nats:4222
-
           ports:
             - containerPort: {{ .Values.service.port }}
           resources: 
