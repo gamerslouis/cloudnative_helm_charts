@@ -48,7 +48,7 @@ ingress:
   hosts:
     - host: localhost
       paths:
-        - path: /
+        - path: /grafana
           pathType: Prefix
           backend:
             service:
