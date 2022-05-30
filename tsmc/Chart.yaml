@@ -28,9 +28,9 @@ dependencies: # A list of the chart requirements (optional)
     repository: https://charts.bitnami.com/bitnami
     version: 0.1.0
 
-  - name: loki
-    repository: https://github.com/grafana/loki
-    version: 2.11.1
+  - name: loki-stack
+    repository: https://grafana.github.io/helm-charts
+    version: 2.6.4
 
   - name: nats
     repository: https://nats-io.github.io/k8s/helm/charts/
@@ -39,8 +39,4 @@ dependencies: # A list of the chart requirements (optional)
   - name: apc-simulator
     repository: https://github.com/gamerslouis/cloudnative_apc_simulator
     version: 0.1.0
-
-  - name: prometheus
-    repository: https://prometheus-community.github.io/helm-charts
-    version: 15.9.0
     
