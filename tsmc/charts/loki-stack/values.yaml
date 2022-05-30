@@ -11,7 +11,7 @@ fluent-bit:
   enabled: false
 
 grafana:
-  enabled: false
+  enabled: true
   sidecar:
     datasources:
       enabled: true
@@ -20,7 +20,7 @@ grafana:
     tag: 8.3.5
 
 prometheus:
-  enabled: false
+  enabled: true
   isDefault: false
 
 filebeat:
