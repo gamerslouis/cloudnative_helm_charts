@@ -46,16 +46,16 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-    - host: localhost
-      http:
-        paths:
-          - path: /grafana
-            pathType: Prefix
-            backend:
-              service:
-                name: tsmc-grafana
-                port:
-                  number: 80
+  - host: localhost
+    http:
+      paths:
+      - path: /grafana
+        pathType: Prefix
+        backend:
+          service:
+            name: tsmc-grafana
+            port:
+              number: 80
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:

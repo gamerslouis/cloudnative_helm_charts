@@ -37,7 +37,14 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-    {{- range .Values.ingress.hosts }}
-  
-    {{- end }}
+  - host: localhost
+    http:
+      paths:
+      - path: /grafana
+        pathType: Prefix
+        backend:
+          service:
+            name: tsmc-grafana
+            port:
+              number: 80
 {{- end }}
