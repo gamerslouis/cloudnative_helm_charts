@@ -55,7 +55,7 @@ ingress:
           service:
             name: tsmc-grafana
             port:
-              number: 3000
+              number: 80
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:

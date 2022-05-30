@@ -46,5 +46,5 @@ spec:
           service:
             name: tsmc-grafana
             port:
-              number: 80
+              number: 3000
 {{- end }}
