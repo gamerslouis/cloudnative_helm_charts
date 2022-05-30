@@ -329,7 +329,7 @@ rbac:
 
 prometheus:
   ## Expose NGINX or NGINX Plus metrics in the Prometheus format.
-  create: true
+  create: false
 
   ## Configures the port to scrape the metrics.
   port: 9113
