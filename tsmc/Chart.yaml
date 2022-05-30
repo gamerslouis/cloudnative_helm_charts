@@ -28,9 +28,9 @@ dependencies: # A list of the chart requirements (optional)
     repository: https://charts.bitnami.com/bitnami
     version: 0.1.0
 
-  - name: loki
+  - name: loki-stack
     repository: https://github.com/grafana/loki
-    version: 2.11.1
+    version: 2.6.4
 
   - name: nats
     repository: https://nats-io.github.io/k8s/helm/charts/
