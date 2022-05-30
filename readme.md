@@ -66,3 +66,20 @@ spec:
  ```
 
 4. Done. (You can check your k8s)
+
+
+## Login to Grafana
+
+1. Get `password`
+
+  ```bash
+  kubectl get secret tsmc-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+  ```
+
+2. port forward
+
+  ```bash
+  kubectl port-forward service/tsmc-grafana 3000:80
+  ```
+
+3. Login with admin and `password`
