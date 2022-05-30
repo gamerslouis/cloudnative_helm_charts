@@ -360,7 +360,7 @@ additionalVolumeMounts: []
 cluster:
   enabled: true
   replicas: 3
-  noAdvertise: false
+  noAdvertise: true
 
   # Explicitly set routes for clustering.
   # When JetStream is enabled, the serverName must be unique in the cluster.
