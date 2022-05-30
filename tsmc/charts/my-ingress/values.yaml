@@ -49,6 +49,7 @@ ingress:
     - host: localhost
       paths:
         - path: /
+          pathType: ImplementationSpecific
           backend:
             serviceName: tsmc-grafana
             servicePort: 80
