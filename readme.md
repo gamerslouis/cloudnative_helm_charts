@@ -36,3 +36,32 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 Open your UI on 127.0.0.1:8080, and type:
 account: admin
 password: decoded password you get in previous instruction.
+
+## Create app
+
+1. Press `NEW APP` button
+2. Press `EDIT AS YAML` button
+3. add setting
+
+    ```yaml
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+    name: tsmc
+    spec:
+    destination:
+        name: ''
+        namespace: default
+        server: 'https://kubernetes.default.svc'
+    source:
+        path: tsmc
+        repoURL: 'https://github.com/gamerslouis/cloudnative_helm_charts.git'
+        targetRevision: HEAD
+    project: default
+    syncPolicy:
+        automated:
+        prune: false
+        selfHeal: false
+    ```
+
+4. Done. (You can check your k8s)
