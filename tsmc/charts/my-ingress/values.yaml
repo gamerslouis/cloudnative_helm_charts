@@ -49,10 +49,12 @@ ingress:
     - host: localhost
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
           backend:
-            serviceName: tsmc-grafana
-            servicePort: 80
+            service:
+              name: tsmc-grafana
+              port:
+                number: 80
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
