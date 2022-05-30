@@ -360,14 +360,14 @@ additionalVolumeMounts: []
 cluster:
   enabled: true
   replicas: 3
-  noAdvertise: true
+  noAdvertise: false
 
   # Explicitly set routes for clustering.
   # When JetStream is enabled, the serverName must be unique in the cluster.
   extraRoutes: [
-        nats://tsmc-nats-0:6222,
-        nats://tsmc-nats-1:6222,
-        nats://tsmc-nats-2:6222,
+        nats://tsmc-nats-0.nats.default.svc:6222,
+        nats://tsmc-nats-1.nats.default.svc:6222,
+        nats://tsmc-nats-2.nats.default.svc:6222,
   ]
 
   # authorization:
