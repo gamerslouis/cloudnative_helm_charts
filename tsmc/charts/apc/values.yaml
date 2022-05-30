@@ -58,10 +58,10 @@ ingress:
 
 resources: 
   limits:
-    cpu: 2000m
+    cpu: 1000m
     memory: 512Mi
   requests:
-    cpu: 2000m
+    cpu: 1000m
     memory: 512Mi
 
   # We usually recommend not to specify default resources and to leave this as a conscious
