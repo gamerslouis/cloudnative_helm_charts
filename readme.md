@@ -34,10 +34,8 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ## Login
 
 Open your UI on 127.0.0.1:8080, and type:
-account: admin
-
-
-password: decoded password you get in previous instruction.
+ - account: admin
+ - password: decoded password you get in previous instruction.
 
 ## Create app
 
