@@ -37,10 +37,10 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-  - host: localhost
+  - host: tsmc-group-1.com
     http:
       paths:
-      - path: /grafana
+      - path: /app(/|$)(.*)
         pathType: Prefix
         backend:
           service:
