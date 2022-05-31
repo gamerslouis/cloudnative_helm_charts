@@ -45,8 +45,7 @@ ingress:
   className: "nginx"
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/ssl-redirect: \"false\"
-    nginx.ingress.kubernetes.io/app-root: /app/
+    nginx.ingress.kubernetes.io/rewrite-target: /
 
   hosts:
   - host: tsmc-group-1.com
