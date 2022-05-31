@@ -49,17 +49,17 @@ ingress:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false" 
 
-  hosts:
-  - host: tsmc-group-1.com
-    http:
-      paths:
-      - path: /app
-        pathType: Prefix
-        backend:
-          service:
-            name: tsmc-grafana
-            port:
-              name: http
+  # hosts:
+  # - host: tsmc-group-1.com
+  #   http:
+  #     paths:
+  #     - path: /app
+  #       pathType: Prefix
+  #       backend:
+  #         service:
+  #           name: tsmc-grafana
+  #           port:
+  #             name: http
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
