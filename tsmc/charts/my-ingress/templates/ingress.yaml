@@ -37,7 +37,7 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-  - host: localhost
+  - host: tsmc-nycu.info
     http:
       paths:
       - path: /grafana

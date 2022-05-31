@@ -45,17 +45,17 @@ ingress:
   className: ""
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-  hosts:
-  - host: tsmc-nycu.info
-    http:
-      paths:
-      - path: /grafana
-        pathType: Prefix
-        backend:
-          service:
-            name: tsmc-grafana
-            port:
-              number: 80
+  # hosts:
+  # - host: tsmc-nycu.info
+  #   http:
+  #     paths:
+  #     - path: /grafana
+  #       pathType: Prefix
+  #       backend:
+  #         service:
+  #           name: tsmc-grafana
+  #           port:
+  #             number: 80
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
