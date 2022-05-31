@@ -40,3 +40,10 @@ dependencies: # A list of the chart requirements (optional)
     repository: https://github.com/gamerslouis/cloudnative_apc_simulator
     version: 0.1.0
     
+  - name: ingress-nginx
+    repository: https://github.com/kubernetes/ingress-nginx
+    version: 4.1.2
+
+  - name: my-ingress
+    repository: https://github.com/gamerslouis/cloudnative_helm_charts
+    version: 0.1.0
