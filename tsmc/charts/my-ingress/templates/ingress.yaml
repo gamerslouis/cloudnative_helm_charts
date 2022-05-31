@@ -40,7 +40,7 @@ spec:
   - host: tsmc-group-1.com
     http:
       paths:
-      - path: /app(/|$)(.*)
+      - path: /app
         pathType: Prefix
         backend:
           service:
