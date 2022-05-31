@@ -46,7 +46,7 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-  - host: localhost
+  - host: tsmc-nycu.info
     http:
       paths:
       - path: /grafana
