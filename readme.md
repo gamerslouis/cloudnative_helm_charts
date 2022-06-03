@@ -8,9 +8,14 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ```
 
 ## Download Argo CD CLI
-
+### By homebrew
 ```bash=
 brew install argocd
+```
+### By script
+```bash=
+curl -sSL -o argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+chmod +x argocd
 ```
 
 ## Access The Argo CD API Server
