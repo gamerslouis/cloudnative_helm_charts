@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: tsmc-grafana
+            name: grafana-nodeport
             port:
               number: 3000
