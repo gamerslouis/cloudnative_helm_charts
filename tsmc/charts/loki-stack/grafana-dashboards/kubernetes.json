@@ -1,255 +1,286 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": "-- Grafana --",
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "target": {
-            "limit": 100,
-            "matchAny": false,
-            "tags": [],
-            "type": "dashboard"
-          },
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
           "type": "dashboard"
-        }
-      ]
-    },
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
-    "id": 2,
-    "links": [],
-    "liveNow": false,
-    "panels": [
-      {
-        "gridPos": {
-          "h": 11,
-          "w": 10,
-          "x": 0,
-          "y": 0
         },
-        "id": 2,
-        "options": {
-          "dedupStrategy": "none",
-          "enableLogDetails": true,
-          "prettifyLogMessage": true,
-          "showCommonLabels": false,
-          "showLabels": false,
-          "showTime": true,
-          "sortOrder": "Descending",
-          "wrapLogMessage": false
-        },
-        "targets": [
-          {
-            "datasource": {
-              "type": "loki",
-              "uid": "P8E80F9AEF21F6940"
-            },
-            "expr": "{app=\"apc-simulator\"} | json | line_format \"{{ .log }}\" | pattern `<service> | <time> | <info> | <msg> | <jsdata>` | line_format \"\\033[96;1m{{ printf \\\"%-20.20s\\\" .service }}\\033[0m \\033[92;1m{{ .info }}\\033[0m\\n\\033[1;37m{{ .msg }}\\033[0m\\n\\n\" ",
-            "instant": false,
-            "maxLines": 100,
-            "range": true,
-            "refId": "A",
-            "resolution": 2
-          }
-        ],
-        "title": "APC Log",
-        "type": "logs"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "PBFA97CFB590B2093"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "s"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 11,
-          "w": 11,
-          "x": 10,
-          "y": 0
-        },
-        "id": 6,
-        "options": {
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single"
-          }
-        },
-        "pluginVersion": "8.3.5",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "PBFA97CFB590B2093"
-            },
-            "exemplar": true,
-            "expr": "rate(process_cpu_seconds_total [1h])",
-            "interval": "",
-            "legendFormat": "{{job}}",
-            "refId": "A"
-          }
-        ],
-        "title": "CPU Time",
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "PBFA97CFB590B2093"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                }
-              ]
-            },
-            "unit": "bytes"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 7,
-          "w": 21,
-          "x": 0,
-          "y": 11
-        },
-        "id": 4,
-        "options": {
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom"
-          },
-          "tooltip": {
-            "mode": "single"
-          }
-        },
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "PBFA97CFB590B2093"
-            },
-            "exemplar": true,
-            "expr": "process_resident_memory_bytes",
-            "interval": "",
-            "legendFormat": "{{job}}",
-            "refId": "A"
-          }
-        ],
-        "title": "Memory Usage",
-        "type": "timeseries"
+        "type": "dashboard"
       }
-    ],
-    "schemaVersion": 34,
-    "style": "dark",
-    "tags": [],
-    "templating": {
-      "list": []
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": true,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "expr": "{app=\"apc-simulator\"} | pattern `<_>:\"<service> | <time> | <info> | <msg> | <jsdata>` | info =~ \"info\" | line_format \"\\033[96;1m{{ printf \\\"%-20.20s\\\" .service }}\\033[0m \\033[92;1m{{ .info }}\\033[0m\\n\\033[1;37m{{ .msg }}\\033[0m\\n\\n\" ",
+          "instant": false,
+          "maxLines": 100,
+          "range": true,
+          "refId": "A",
+          "resolution": 2
+        }
+      ],
+      "title": "APC Info Log",
+      "type": "logs"
     },
-    "time": {
-      "from": "now-6h",
-      "to": "now"
+    {
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 11,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "expr": "{app=\"apc-simulator\"} | pattern `<_>:\"<service> | <time> | <info> | <msg> | <jsdata>` | info !~ \"info\" | line_format \"\\033[93;1m{{ .service }}\\033[0m \\033[91;1m{{ .info }}\\033[0m \\033[1;37m{{ .msg }}\\033[0m\" ",
+          "refId": "A"
+        }
+      ],
+      "title": "APC Error Log",
+      "type": "logs"
     },
-    "timepicker": {},
-    "timezone": "",
-    "title": "log dashboard",
-    "uid": "cSM6IL97z",
-    "version": 2,
-    "weekStart": ""
-  }
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 11,
+        "x": 0,
+        "y": 8
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "process_resident_memory_bytes",
+          "interval": "",
+          "legendFormat": "{{job}}",
+          "refId": "A"
+        }
+      ],
+      "title": "Memory Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 11,
+        "x": 11,
+        "y": 8
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "8.3.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "rate(process_cpu_seconds_total [1h])",
+          "interval": "",
+          "legendFormat": "{{job}}",
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Time",
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 34,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "log dashboard",
+  "uid": "cSM6IL97z",
+  "version": 1,
+  "weekStart": ""
+}
