@@ -26,11 +26,93 @@
   "liveNow": false,
   "panels": [
     {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 22,
+        "x": 0,
+        "y": 0
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "expr": "last_over_time({app=\"apc-simulator\"} | pattern `<service> | <time> | <info> | <msg> | <jsdata>` | info =~ \"info\" | msg =~ \"receive.*\" | line_format \"{{.msg}}\" | pattern `<_> <type> <_>: <fac>`  | line_format \"type={{.type}} fac={{.fac}}\" | logfmt | unwrap fac | __error__ = \"\" [1h]) by (type) ",
+          "legendFormat": "{{type}}",
+          "refId": "A"
+        }
+      ],
+      "title": "Factor",
+      "type": "timeseries"
+    },
+    {
       "gridPos": {
         "h": 8,
         "w": 11,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 2,
       "options": {
@@ -65,7 +147,7 @@
         "h": 8,
         "w": 11,
         "x": 11,
-        "y": 0
+        "y": 8
       },
       "id": 8,
       "options": {
@@ -147,7 +229,7 @@
         "h": 9,
         "w": 11,
         "x": 0,
-        "y": 8
+        "y": 16
       },
       "id": 4,
       "options": {
@@ -236,7 +318,7 @@
         "h": 9,
         "w": 11,
         "x": 11,
-        "y": 8
+        "y": 16
       },
       "id": 6,
       "options": {
