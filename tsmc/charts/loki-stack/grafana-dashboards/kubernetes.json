@@ -29,6 +29,62 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 0,
+        "y": 0
+      },
+      "id": 12,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false
+      },
+      "pluginVersion": "8.3.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "expr": "sum by (info) (rate({app=\"apc-simulator\"} | pattern `<service> | <time> | <info> | <msg> | <jsdata>` | info =~ \"info\" | msg =~ \"process.*\"  [1m] )) ",
+          "refId": "A"
+        }
+      ],
+      "title": "Avg Process Complete Rate",
+      "type": "gauge"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "palette-classic"
           },
           "custom": {
@@ -78,8 +134,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 22,
-        "x": 0,
+        "w": 17,
+        "x": 5,
         "y": 0
       },
       "id": 10,
