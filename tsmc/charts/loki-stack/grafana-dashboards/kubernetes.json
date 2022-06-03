@@ -22,6 +22,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 1,
+  "iteration": 1654280387889,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -187,7 +188,7 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "expr": "{app=\"apc-simulator\"} | pattern `<service> | <time> | <info> | <msg> | <jsdata>` | info =~ \"info\" | line_format \"\\033[96;1m{{ printf \\\"%-20.20s\\\" .service }}\\033[0m \\033[92;1m{{ .info }}\\033[0m\\n\\033[1;37m{{ .msg }}\\033[0m\\n\\n\" ",
+          "expr": "{app=\"apc-simulator\"} | pattern `<service> | <time> | <info> | <msg> | <jsdata>` | info =~ \"info\" | service = \"${service}\" | line_format \"\\033[96;1m{{ printf \\\"%-20.20s\\\" .service }}\\033[0m \\033[92;1m{{ .info }}\\033[0m\\n\\033[1;37m{{ .msg }}\\033[0m\\n\\n\" ",
           "instant": false,
           "maxLines": 100,
           "range": true,
@@ -409,7 +410,35 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "APC",
+          "value": "[APC_SERVICE]"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "service",
+        "options": [
+          {
+            "selected": true,
+            "text": "APC",
+            "value": "[APC_SERVICE]"
+          },
+          {
+            "selected": false,
+            "text": "PARAMS",
+            "value": "[PARAMS_SERVICE]"
+          }
+        ],
+        "query": "APC : [APC_SERVICE], PARAMS : [PARAMS_SERVICE]",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
   },
   "time": {
     "from": "now-1h",
