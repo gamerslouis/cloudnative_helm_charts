@@ -1,8 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
- name: basic-ingress
+  name: minimal-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
- backend:
-   serviceName: tsmc-grafana
-   servicePort: 80
+  ingressClassName: nginx-example
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: tsmc-grafana
+            port:
+              number: 80
