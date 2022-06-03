@@ -21,9 +21,3 @@ spec:
               value: 'nats://tsmc-nats:4222'
           ports:
             - containerPort: {{ .Values.service.port }}
-          resources: 
-            limits:
-              cpu: {{ .Values.resources.limits.cpu }}
-            requests:
-              cpu: {{ .Values.resources.requests.cpu }}
-              memory: {{ .Values.resources.requests.memory }}

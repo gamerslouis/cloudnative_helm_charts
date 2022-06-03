@@ -1,14 +1,14 @@
-# Default values for apc.
+# Default values for my-ingress.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: waterso/tsmc-1
-  pullPolicy: Always
+  repository: nginx
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -38,32 +38,34 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 3030
+  port: 80
 
 ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false" 
+
   hosts:
-    - host: chart-example.local
+  - host: tsmc-group-1.com
+    http:
       paths:
-        - path: /
-          pathType: ImplementationSpecific
+      - path: /app
+        pathType: Prefix
+        backend:
+          service:
+            name: tsmc-grafana
+            port:
+              name: http
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
 
-resources: 
-#   limits:
-#     cpu: 1000m
-#     memory: 512Mi
-#   requests:
-#     cpu: 1000m
-#     memory: 512Mi
-
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
