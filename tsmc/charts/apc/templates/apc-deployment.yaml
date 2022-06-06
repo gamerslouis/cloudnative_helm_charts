@@ -19,5 +19,16 @@ spec:
           env: 
             - name: NATS_SERVICE_CONNECTION
               value: 'nats://tsmc-nats:4222'
+            - name: NODE_CONFIG
+              value: '{"mongodb": {"uri": "mongodb://tsmc-mongodb:27017/"}}'
+            - name: MONGO_USER
+              value: 'root'
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tsmc-mongodb
+                  key: mongodb-root-password
+                  optional: false
           ports:
             - containerPort: {{ .Values.service.port }}
+
