@@ -32,3 +32,11 @@ spec:
           ports:
             - containerPort: {{ .Values.service.port }}
 
+      initContainers:
+      - name: init-nats
+        image: busybox:1.28
+        command: ['sh', '-c', 'until nslookup tsmc-nats; do echo waiting for nats; sleep 2; done;']
+      - name: init-mongo
+        image: busybox:1.28
+        command: ['sh', '-c', 'until nslookup tsmc-mongodb; do echo waiting for mongodb; sleep 2; done;']
+
