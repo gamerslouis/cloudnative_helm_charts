@@ -88,3 +88,4 @@ spec:
   ```
 
 3. Login with admin and `password`
+
